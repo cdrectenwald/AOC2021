@@ -9,7 +9,7 @@ public class Main {
         List<Integer> depths = new ArrayList<Integer>();
         depths = init();
 
-        // PART ONE
+       
         int[] positiveChanges = day1(depths);
         System.out.println("Part One: " + positiveChanges[1]);
         System.out.println("Part Two: " + positiveChanges[0]);
