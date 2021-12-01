@@ -2,4 +2,4 @@
 Advent of Code
 
 
-Attempting to work throuh the problems listed here: https://adventofcode.com/2021/about in Javascript and Python
+Attempting to work through the problems listed here: https://adventofcode.com/2021/about in Javascript and Python
