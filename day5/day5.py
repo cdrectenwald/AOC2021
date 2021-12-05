@@ -15,6 +15,7 @@ class Solution:
     self.parsedArr = []
     self.dic1 = {}
     self.dic2 = {}
+    self.parseLines()
 
 
   def parseLines(self):
@@ -34,7 +35,7 @@ class Solution:
       self.parsedArr.append([dx, dy, x1, y1])
 
   def partOne(self):
-    self.parseLines()
+
     for line in self.parsedArr:
       dx, dy, x1, y1 = line[0], line[1], line[2], line[3]
       for i in range(0, 1+max(abs(dx), abs(dy))):
@@ -54,7 +55,6 @@ class Solution:
 
   def partTwo(self):
 
-    self.parseLines()
     for line in self.parsedArr:
 
       dx, dy, x1, y1 = line[0], line[1], line[2], line[3]
