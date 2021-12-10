@@ -5,12 +5,6 @@ with open('input.txt', 'r') as file:
 
 SCORES = []
 cost = 0
-paren = {
-  '(' : 1,
-  '[': 1,
-  '{' : 1,
-  '<': 1 }
-cost = 0
 parenDict = {
   "(" : ")",
   "{" : "}",
