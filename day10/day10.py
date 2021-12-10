@@ -10,46 +10,40 @@ paren = {
   '[': 1,
   '{' : 1,
   '<': 1 }
-for line in lines:
-    goodLine = True
-    stack = []
-    for c in line:
-        if c in paren:
-            stack.append(c)
-        elif c==')':
-            if S[-1] != '(':
-                cost += 3
-                goodLine = False
-                break
-            else:
-                stack.pop()
-        elif c==']':
-            if S[-1] != '[':
-                cost += 57
-                goodLine = False
-                break
-            else:
-                stack.pop()
-        elif c=='}':
-            if S[-1] != '{':
-                cost += 1197
-                goodLine = False
-                break
-            else:
-                stack.pop()
-        elif c=='>':
-            if S[-1] != '<':
-                cost += 25137
-                goodLine = False
-                break
-            else:
-                stack.pop()
-    if goodLine:
-      score = 0
-      P = {'(': 1, '[': 2, '{': 3, '<': 4}
-      for c in range(len(S)-1, -1, -1):
-          score = score*5 + P[S[c]]
-      SCORES.append(score)
+cost = 0
+parenDict = {
+  "(" : ")",
+  "{" : "}",
+  "[" : "]",
+  "<" : ">"
+}
+costDic = {
+  ")" : 3,
+  "]" : 57,
+  "}" : 1197,
+  ">" : 25137
+}
 
+for line in lines:
+  stack = []
+  goodLine = True
+  for let in line:
+    if let in parenDict:
+      stack.append(parenDict[let])
+    elif let == stack[-1]:
+      stack.pop()
+    else:
+      cost += costDic[let]
+      break
+      ## part 2
+   if goodLine:
+     score = 0
+     P = {'(': 1, '[': 2, '{': 3, '<': 4}
+     for c in range(len(S)-1, -1, -1):
+         score = score*5 + P[S[c]]
+     SCORES.append(score)
+## Part 1
+print(cost)
+# Part 2
 SCORES.sort()
 print(SCORES[len(SCORES)//2])
