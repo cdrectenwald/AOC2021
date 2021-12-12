@@ -1,3 +1,4 @@
+import time
 class Read:
 
   def createGraph(self):
@@ -20,7 +21,7 @@ class Solution:
   def __init__(self, data):
     self.graph = data
 
-  def solver(self, isPartTwo):
+  def solver(self, isPartTwo=True):
       start = ('start', set(['start']), None)
       q = [start]
       totalPaths = 0
@@ -45,8 +46,12 @@ class Solution:
 
 
 if __name__ == "__main__":
+  start = time.perf_counter()
   data = Read().createGraph()
 
   Solutions = Solution(data)
-  print("Part One ", Solutions.solver(isPartTwo=False))
-  print("Part Two ", Solutions.solver(isPartTwo=True))
+
+  print("Part One ", Solutions.solver(False))
+  print("Part Two ", Solutions.solver())
+  end = time.perf_counter()
+  print("Total time", end-start)
